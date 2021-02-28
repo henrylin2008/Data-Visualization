@@ -16,8 +16,8 @@ repo_dicts = response_dict['items']
 repo_links, stars, labels = [], [], []
 for repo_dict in repo_dicts:
     repo_name = repo_dict['name']
-    repo_url = repo_dict['html_url']
-    repo_link = f"<a href='{repo_url}'>{repo_name}</a>"
+    repo_url = repo_dict['html_url']    # Pull the URL for the project
+    repo_link = f"<a href='{repo_url}'>{repo_name}</a>"     # link to the project
     repo_links.append(repo_link)
 
     stars.append(repo_dict['stargazers_count'])
@@ -30,7 +30,7 @@ for repo_dict in repo_dicts:
 # Make visualization
 data = [{
     'type': 'bar',      # Bar type graph
-    'x': repo_links,
+    'x': repo_links,    # x-axis with clickable repo link
     'y': stars,
     'hovertext': labels,
     'marker': {
